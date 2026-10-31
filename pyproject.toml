@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "audiobook-length-estimator"
+version = "0.1.0"
+description = "Size an audiobook before anyone hits record: finished hours, pace scenarios, retail bins in plain words, and DIY-vs-hiring budget math. Pure stdlib."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Asdale Dynamics, LLC" }]
+requires-python = ">=3.9"
+keywords = ["audiobook", "ACX", "runtime", "words-per-hour", "self-publishing", "KDP"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Authors",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Office/Business",
+    "Topic :: Text Processing :: General",
+]
+dependencies = []
+
+[project.scripts]
+audiobook-estimator = "audiobook_length_estimator.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
